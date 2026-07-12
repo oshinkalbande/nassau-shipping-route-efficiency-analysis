@@ -267,12 +267,6 @@ fig_state = px.bar(
     title="Top 10 States with Highest Shipping Lead Time"
 )
 
-
-st.plotly_chart(
-    fig_state,
-    use_container_width=True
-)
-
 # ==================================
 # Ship Mode Performance
 # ==================================
@@ -303,11 +297,6 @@ fig_ship = px.bar(
 )
 
 
-st.plotly_chart(
-    fig_ship,
-    use_container_width=True
-)
-
 st.header("📦 Shipment Distribution by Ship Mode")
 
 
@@ -316,12 +305,6 @@ fig_pie = px.pie(
     names="Ship Mode",
     values="Total Shipments",
     title="Shipment Volume by Shipping Method"
-)
-
-
-st.plotly_chart(
-    fig_pie,
-    use_container_width=True
 )
 
 # ==================================
@@ -360,9 +343,6 @@ fig_map = px.choropleth(
     color_continuous_scale="Reds",
     title="Average Shipping Lead Time by State"
 )
-
-st.plotly_chart(fig_map, use_container_width=True)
-
 
 print(df["State/Province"].unique())
 
