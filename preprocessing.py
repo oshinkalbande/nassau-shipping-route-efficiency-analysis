@@ -8,11 +8,24 @@ df = pd.read_csv(
 )
 
 # Convert Order Date and Ship Date to Date format
-df["Order Date"] = pd.to_datetime(df["Order Date"], dayfirst=True)
-df["Ship Date"] = pd.to_datetime(df["Ship Date"], dayfirst=True)
+
+df["Order Date"] = pd.to_datetime(
+    df["Order Date"],
+    format="mixed",
+    dayfirst=True
+)
+
+df["Ship Date"] = pd.to_datetime(
+    df["Ship Date"],
+    format="mixed",
+    dayfirst=True
+)
 
 # Calculate Shipping Lead Time
-df["Lead Time"] = (df["Ship Date"] - df["Order Date"]).dt.days
+
+df["Lead Time"] = (
+    df["Ship Date"] - df["Order Date"]
+).dt.days
 
 # Remove invalid lead times (if any)
 df = df[df["Lead Time"] >= 0]
